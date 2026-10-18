@@ -1,39 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admit Card</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admit Card Portal</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: #ffffff;
-        }
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #eef3f9;
+}
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-    </style>
+.container {
+    max-width: 450px;
+    margin: 45px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px #0002;
+}
+
+h2 {
+    text-align: center;
+    color: #123c70;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c5ced8;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #123c70;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #09284e;
+}
+</style>
 </head>
 
 <body>
 
-    <iframe
-        src="./NMTC%20ADMIT%20CARD.pdf#toolbar=0&view=FitH"
-        title="Admit Card PDF">
-    </iframe>
+<div class="container">
+    <h2>Admit Card Portal</h2>
+
+    <form id="admitForm">
+
+        <label for="candidate">Candidate Name</label>
+        <input
+            id="candidate"
+            type="text"
+            value="Umang Preetam"
+            required
+        >
+
+        <label for="registration">Registration Number</label>
+        <input
+            id="registration"
+            type="text"
+            value="NMTC2652004587"
+            required
+        >
+
+        <label for="dob">Date of Birth</label>
+        <input
+            id="dob"
+            type="text"
+            value="21-04-2010"
+            required
+        >
+
+        <button type="submit">View Admit Card</button>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("admitForm")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const candidate =
+        document.getElementById("candidate").value.trim();
+
+    const registration =
+        document.getElementById("registration").value.trim();
+
+    const dob =
+        document.getElementById("dob").value.trim();
+
+    if (!candidate || !registration || !dob) {
+        alert("Please fill in all details.");
+        return;
+    }
+
+    window.location.href = "./NMTC%20ADMIT%20CARD.pdf";
+});
+</script>
 
 </body>
 </html>
