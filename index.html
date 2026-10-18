@@ -1,224 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NMTC Admit Card Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admit Card</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef4fb;
-    color: #12366b;
-}
-
-.container {
-    max-width: 600px;
-    margin: 35px auto;
-    padding: 22px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px #0002;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-h1 {
-    font-size: 23px;
-}
-
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 7px;
-    border: 1px solid #b8cbe3;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    padding: 13px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 6px;
-    background: #0755a5;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #003d7a;
-}
-
-#result {
-    display: none;
-    margin-top: 25px;
-    padding: 18px;
-    border: 2px solid #1767ad;
-    border-radius: 8px;
-}
-
-.demo {
-    text-align: center;
-    color: #b00020;
-    font-weight: bold;
-    border: 1px solid #b00020;
-    padding: 8px;
-}
-
-.row {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    overflow-wrap: anywhere;
-}
-
-.row strong {
-    display: inline-block;
-    min-width: 155px;
-}
-
-@media print {
     body {
-        background: white;
+      background: #ffffff;
+      width: 100%;
     }
 
-    .container {
-        box-shadow: none;
-        margin: 0 auto;
+    .admit-card {
+      display: block;
+      width: 100%;
+      max-width: 1024px;
+      height: auto;
+      margin: 0 auto;
     }
-
-    form, .search-title, .print-btn {
-        display: none !important;
-    }
-
-    #result {
-        display: block !important;
-    }
-}
-</style>
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <h1>NMTC Candidate Portal</h1>
-    <p class="search-title" style="text-align:center">
-        Enter your details to view your demo admit card.
-    </p>
-
-    <form id="searchForm">
-        <label for="candidate">Candidate Name</label>
-        <input
-            id="candidate"
-            type="text"
-            placeholder="Enter candidate name"
-            required
-        >
-
-        <label for="registration">Registration Number</label>
-        <input
-            id="registration"
-            type="text"
-            placeholder="Enter registration number"
-            required
-        >
-
-        <label for="dob">Date of Birth</label>
-        <input
-            id="dob"
-            type="text"
-            placeholder="DD-MM-YYYY"
-            required
-        >
-
-        <button type="submit">View Demo Admit Card</button>
-    </form>
-
-    <div id="message" role="alert"></div>
-
-    <div id="result">
-        <h2>Candidate Details</h2>
-
-        <p class="demo">
-            DEMO — NOT AN OFFICIAL ADMIT CARD
-        </p>
-
-        <div class="row">
-            <strong>Candidate Name:</strong>
-            <span id="outName"></span>
-        </div>
-
-        <div class="row">
-            <strong>Registration No.:</strong>
-            <span id="outReg"></span>
-        </div>
-
-        <div class="row">
-            <strong>Date of Birth:</strong>
-            <span id="outDob"></span>
-        </div>
-
-        <p style="font-size:13px">
-            This page displays a demonstration record only.
-            Verify official examination details with the organizer.
-        </p>
-
-        <button class="print-btn" onclick="window.print()">
-            Print Demo
-        </button>
-    </div>
-
-</div>
-
-<script>
-const form = document.getElementById("searchForm");
-
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("candidate")
-        .value.trim();
-
-    const registration = document.getElementById("registration")
-        .value.trim();
-
-    const dob = document.getElementById("dob")
-        .value.trim();
-
-    const message = document.getElementById("message");
-    const result = document.getElementById("result");
-
-    message.textContent = "";
-    result.style.display = "none";
-
-    if (!name || !registration || !dob) {
-        message.textContent = "Please fill in all fields.";
-        return;
-    }
-
-    document.getElementById("outName").textContent = name;
-    document.getElementById("outReg").textContent = registration;
-    document.getElementById("outDob").textContent = dob;
-
-    result.style.display = "block";
-});
-</script>
+  <img
+    class="admit-card"
+    src="admit-card.png"
+    alt="Admit Card"
+  >
 
 </body>
-  </html>
+</html>
